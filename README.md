@@ -1,10 +1,13 @@
 ### KREIRAMO LINUX KORISNIKA
+
 `sudo useradd --no-create-home clientID`
 
 gdje je *ID* jedinstveni id tenanta iz baze podataka
 
 ### UID i GID za kreiranog korisnika
+
 `id -u client1`
+
 `id -g client1`
 
 ### LARAVEL APLIKACIJA jednog TENANTA - docker container
