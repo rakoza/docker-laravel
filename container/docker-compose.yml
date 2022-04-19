@@ -20,7 +20,13 @@ services:
             - ./storage:/var/www/html/storage/app
             - .env:/var/www/html/.env
 
-        # env variables
+        # env variables, ovako ih prosljedjujemo u kontainer
+        # VIRTUAL_HOST - koristi se u nginx-proxy kontejneru za konfiguraciju virtuelnog host-a
+        #
+        # Vidi skript `start-container` za upotrebu ovih env varijabli
+        # TZ - podesavamo vremensku zonu u docker container-u
+        # USER_UID - uid apache servisa koji se pokrece u docker container-u
+        # USER_GID - gid apache servisa koji se pokrece u docker container-u
         environment:
             VIRTUAL_HOST: ${APP_DOMAIN}
             TZ: ${TZ}
