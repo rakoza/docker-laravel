@@ -11,21 +11,21 @@ gdje je *ID* jedinstveni id tenanta iz baze podataka
 `id -g client1`
 
 ### LARAVEL APLIKACIJA jednog TENANTA - docker container
-Pokrece se u docker container-u.
-Docker container pokrecemo i zaustavljamo iz *manager* aplikacije.
-Docker container se kreira i pokrece iz foldera **clientID** pozivom komande `docker-compose up`:
-    - `docker-compose.yml` je file za kreiranje docker image-a, kopiramo ga iz ./container direktorija i isti je za svakog tenanta
-    - `.env` file mapiramo na `.env` file unutar docker container-a (laravel aplikacija) jednog tenanta
-    - `.env` file sadrzi i dodatne promjenjive koje se mapiraju na env varijable u `docker-compose.yml`
-    - *manager* aplikacij kreira novog klijenta, tj folder clientID, gdje je ID id tenanta iz baze podataka
+Pokrece se u docker container-u.\
+Docker container pokrecemo i zaustavljamo iz *manager* aplikacije.\
+Docker container se kreira i pokrece iz foldera **clientID** pozivom komande `docker-compose up`:\
+- `docker-compose.yml` je file za kreiranje docker image-a, kopiramo ga iz ./container direktorija i isti je za svakog tenanta
+- `.env` file mapiramo na `.env` file unutar docker container-a (laravel aplikacija) jednog tenanta
+- `.env` file sadrzi i dodatne promjenjive koje se mapiraju na env varijable u `docker-compose.yml`
+- *manager* aplikacij kreira novog klijenta, tj folder clientID, gdje je ID id tenanta iz baze podataka
 
 
 ### MYSQL BAZA
 
-Pokrece se kao servis na posebnom serveru.
-Root pristup ima samo admin.
-Za svakog korisnika kreira se novi db korisnik i baza.
-Kako pravim korisnika i kako da mu dodjelim prava na bazi?
+Pokrece se kao servis na posebnom serveru.\
+Root pristup ima samo admin.\
+Za svakog korisnika kreira se novi db korisnik i baza.\
+Kako pravim korisnika i kako da mu dodjelim prava na bazi?\
 
 ### REDIS BAZA
 
