@@ -1,8 +1,28 @@
+### IZMJENA `visudo` KONFIGURACIJE
+`sudo visudo -f /etc/sudoers.d/rakoza`
+
+dodati liniju:
+
+`rakoza  ALL = NOPASSWD: /usr/sbin/useradd, /usr/bin/chown`
+
+provjeriti konfiguraciju:
+
+```bash
+rakoza@qhost:~$ sudo -l
+
+User rakoza may run the following commands on qhost:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/sbin/useradd, /usr/bin/chown
+```
+
+Ovako user *rakoza* moze pozivati komandu `sudo useradd --no-create-home client{ID}` bez unosa lozinke.
+
+
 ### KREIRAMO LINUX KORISNIKA
 
-`sudo useradd --no-create-home clientID`
+`sudo useradd --no-create-home client{ID}`
 
-gdje je *ID* jedinstveni id tenanta iz baze podataka
+**ID** jedinstveni id tenanta iz baze podataka
 
 ### UID i GID za kreiranog korisnika
 
@@ -13,11 +33,12 @@ gdje je *ID* jedinstveni id tenanta iz baze podataka
 ### LARAVEL APLIKACIJA jednog TENANTA - docker container
 Pokrece se u docker container-u.\
 Docker container pokrecemo i zaustavljamo iz *manager* aplikacije.\
-Docker container se kreira i pokrece iz foldera **clientID** pozivom komande `docker-compose up`:\
+Docker container se kreira i pokrece iz foldera **clientID** pozivom komande `docker-compose up`:
+
 - `docker-compose.yml` je file za kreiranje docker image-a, kopiramo ga iz ./container direktorija i isti je za svakog tenanta
 - `.env` file mapiramo na `.env` file unutar docker container-a (laravel aplikacija) jednog tenanta
 - `.env` file sadrzi i dodatne promjenjive koje se mapiraju na env varijable u `docker-compose.yml`
-- *manager* aplikacij kreira novog klijenta, tj folder clientID, gdje je ID id tenanta iz baze podataka
+- *manager* aplikacija kreira novog klijenta, tj folder clientID, gdje je ID id tenanta iz baze podataka
 
 
 ### MYSQL BAZA
