@@ -7,8 +7,8 @@
 `id -u client1`
 `id -g client1`
 
-- kreiramo folder client1 kao
-- u njega kopiramo
+- kreiramo folder client1 kao korisnik `client1`
+- u njemu kreiramo fajlove docker-compose.yml i .env
 
 - za .env file klijenta su mi jos potrebni:
 TZ - timezone

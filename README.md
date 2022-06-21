@@ -69,7 +69,7 @@ services:
   nginx-proxy:
     image: nginxproxy/nginx-proxy:alpine
     ports:
-      - "789:80"
+      - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
